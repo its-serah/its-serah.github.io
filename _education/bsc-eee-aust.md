@@ -1,7 +1,8 @@
 ---
-degree: B.Sc in Electrical and Electronics Engineering
-institute: Ahsanullah University of Science and Technology
-duration: 2016 - 2020
-excerpt: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac sapien vel sem tristique consequat ac eu magna. Nulla condimentum erat quis enim tempor consequat.
+degree: Masters of Science in Computer Science 
+
+institute: ebanese International University (LIU)
+duration: 2022 - 2024
+excerpt: This advanced degree provided in-depth exposure to various courses, ranging from distributed operating systems to advanced AI and research-focused subjects. My ongoing thesis work focuses on building a knowledge graph robust pipeline available for offline use .
 order: 1
 ---
