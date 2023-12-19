@@ -12,15 +12,15 @@ paginate_path: "/blog/page:num/"
 social:
   email: 
     visibility: true
-    mail: contact@arnob.me
+    mail: serah.elrashidi@gmail.com
   github: 
     visibility: true
     handle: arnobk
   linkedin: 
     visibility: true
-    handle: arnobkarmokar
+    handle: https://www.linkedin.com/in/sarah-el-rashidi/ 
   twitter: 
-    visibility: true
+    visibility: false 
     handle: arnobdotme
 
 # Collections
@@ -66,7 +66,7 @@ collection_option:
     visibility: true
   publications: 
     label: Publications
-    visibility: true
+    visibility: false
   volunteerexperience: 
     label: Volunteer Experience
     visibility: true
@@ -80,8 +80,8 @@ collection_option:
 navigation:
 - title: About
   url: /
-- title: Blog
-  url: /blog/
+- title: My Begginers LeetCode Guide
+  url: /leet/
 - title: Contact
   url: /contact
 
