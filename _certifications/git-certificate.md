@@ -1,7 +1,7 @@
 ---
-title: Git Certificate
-institute: Coursera
-year: 2020
-certificate_url: https://coursera.com/
-excerpt: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac sapien vel sem tristique consequat ac eu magna. Nulla condimentum erat quis enim tempor consequat.
+title: Deep Learning.AI TensorFlow Developer Professional Certificate
+institute: Deep Learning.AI offere3d through Coursera
+year: 2023
+certificate_url: 
+excerpt: 
 ---
