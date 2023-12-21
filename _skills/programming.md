@@ -1,5 +1,5 @@
 ---
 category: Programming
-details: C++, Python, Tcl, Matlab, PHP, NodeJS, Dart
+details:  Python(TensorFlow, PyTorch, scikit-learn,Pandas), GO , Javascript
 order: 1
 ---
