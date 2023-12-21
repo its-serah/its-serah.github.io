@@ -1,5 +1,5 @@
 ---
-category: Hardware
-details: Arduino, FPGA, Raspberry Pi
+category: 
+details: 
 order: 2
 ---
