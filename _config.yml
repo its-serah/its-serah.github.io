@@ -79,7 +79,7 @@ collection_option:
     visibility: true
   achievements: 
     label: Achievements
-    visibility: true
+    visibility: false
 
 navigation:
 - title: About
