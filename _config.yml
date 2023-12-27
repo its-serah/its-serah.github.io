@@ -17,11 +17,11 @@ social:
     visibility: true
     mail: serah.elrashidi@gmail.com
   github: 
-    visibility: true
+    visibility: false
     handle: arnobk
   linkedin: 
     visibility: true
-    handle: https://www.linkedin.com/in/sarah-el-rashidi/ 
+    handle: sarah-el-rashidi
   twitter: 
     visibility: false 
     handle: arnobdotme
