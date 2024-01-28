@@ -83,8 +83,6 @@ collection_option:
 navigation:
 - title: About
   url: /
-- title: My Begginers LeetCode Guide
-  url: /leet/
 - title: Contact
   url: /contact
 
