@@ -83,6 +83,8 @@ collection_option:
 navigation:
 - title: About
   url: /
+- title: Hobbies
+  url: /hobbies
 - title: Contact
   url: /contact
 
