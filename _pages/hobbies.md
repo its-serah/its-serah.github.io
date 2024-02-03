@@ -1,5 +1,5 @@
 ---
-title: About
-layout: about
-permalink: "/"
+title: Hobbies
+layout: hobbies
+permalink: "/hobbies"
 ---
