@@ -1,7 +1,7 @@
 ---
-title: Transformer Models and BERT Model
-institute: Google
-year:  December 2023
+title: Deep Learning.AI Generative AI for Everyone
+institute: DeepLearning.AI offered through Coursera
+year:  November 2023
 certificate_url: 
 excerpt: 
 ---
