@@ -1,6 +1,7 @@
 ---
-title: Graduate Researcher – LIU
-duration: October 2023 - Present
-excerpt:  I am actively involved in a research project focusing on constructing knowledge graphs (KGs) from unstructured raw text, primarily in English. Additionally, I aim to implement this approach in the Arabic language, pending testing and validation. My work necessitates an in-depth literature review and a solid understanding of natural language, entity recognition, and relationship extraction. Leveraging my robust knowledge of Graph theory has proven beneficial in various aspects of the research.The ultimate goal is to establish an efficient system capable of recognizing logical relationships, thereby contributing to a more precise knowledge pipeline.
+title: Software Engineer Part-time
+duration: June 2022 - Dec 2022
+excerpt: Wrote reusable unit test documents to ensure quality control and bug detection by increasing over 25%
+efficiency rate and spearheaded diverse projects during the company’s transition to outsourcing software services, including the development of medium-scale e-commerce websites and sophisticated data collection forms and management systems.
 order: 1
 ---
