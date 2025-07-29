@@ -11,6 +11,8 @@
     <title>{{site.name}} - {{page.title}}</title>
     <link rel="icon" type="image/png" href={{"assets/favicon.png" | relative_url}}>
     <link rel="stylesheet" href={{"assets/styles.css" | relative_url}}>
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     {% if site.google_analytics %}
     {% include analytics.html %}
     {% endif %}
@@ -44,11 +46,17 @@
             </ul>
         </nav>
 
-        <div class="ap-line"></div>
+<div class="ap-line"></div>
 
-        <div class="ap-content">
-            {{content}}
-        </div>
+<!-- Buttons -->
+<div class="button-container">
+    <button class="option-button" id="academia-btn">Academia</button>
+    <button class="option-button" id="recruiter-btn">Recruiter</button>
+</div>
+
+<div class="ap-content">
+    {{content}}
+</div>
 
         <div class="ap-line"></div>
         <!-- FOOTER -->
@@ -74,7 +82,8 @@
 
     </div>
 
-
+    <!-- Custom JavaScript -->
+    <script src={{"assets/dice-animation.js" | relative_url}}></script>
 </body>
 
 </html>

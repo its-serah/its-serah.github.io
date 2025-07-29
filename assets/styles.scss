@@ -21,6 +21,18 @@ a:hover {
 
 }
 
+button.option-button {
+    background-color: #f0f0f0;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+button.option-button:hover {
+    background-color: #e0e0e0;
+}
+
 .ap-container {
     width: 90%;
     max-width: 1100px;
