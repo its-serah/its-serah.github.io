@@ -1,151 +1,102 @@
 ---
 layout: default
 ---
-<div class="ap-career-objective">
-    {{site.career-objective}}
+
+<!-- Career Objective Section -->
+<div class="ap-intro-section">
+    <div class="ap-career-objective">
+        {{site.career-objective}}
+    </div>
 </div>
 
+<!-- Quick Navigation Cards -->
+<div class="ap-quick-nav">
+    <div class="ap-nav-card">
+        <h3>🔬 Research</h3>
+        <p>Explore my <a href="/publications">publications</a> and <a href="/projects">projects</a> in AI and quantum computing.</p>
+    </div>
+    <div class="ap-nav-card">
+        <h3>🎤 Speaking</h3>
+        <p>Check out my <a href="/workshops">workshops and conferences</a> where I share knowledge.</p>
+    </div>
+    <div class="ap-nav-card">
+        <h3>🏆 Recognition</h3>
+        <p>View my <a href="/achievements">awards and achievements</a> in academic and community work.</p>
+    </div>
+</div>
+
+<!-- Main Sections -->
 {% if site.collection_option['experience']['visibility'] == true %}
 <div class="ap-line"></div>
-<!-- WORK EXPERIENCE -->
 <div class="ap-block">
     <p class="ap-subtitle">{{site.collection_option['experience']['label']}}</p>
-    {% for experience in site.experience %}
-    <div class="ap-experience">
-        <p class="ap-experience-title">{{experience.title}}</p>
-        <p class="ap-experience-year">{{experience.duration}}</p>
-        <p class="ap-experience-excerpt">{{experience.excerpt}}</p>
-    </div>
-    {% endfor %}
+    {% if site.experience.size > 0 %}
+        {% for experience in site.experience %}
+        <div class="ap-experience">
+            <p class="ap-experience-title">{{experience.title}}</p>
+            <p class="ap-experience-year">{{experience.duration}}</p>
+            <p class="ap-experience-excerpt">{{experience.excerpt}}</p>
+        </div>
+        {% endfor %}
+    {% else %}
+        <div class="ap-empty-message">
+            <p>💼 Professional experience details will be updated soon. Currently focused on research and academic pursuits leading to PhD applications.</p>
+        </div>
+    {% endif %}
 </div>
 {% endif %}
 
 {% if site.collection_option['education']['visibility'] == true %}
 <div class="ap-line"></div>
-<!-- EDUCATION -->
 <div class="ap-block">
     <p class="ap-subtitle">{{site.collection_option['education']['label']}}</p>
-    {% for education in site.education %}
-    <div class="ap-education">
-        <p class="ap-education-degree">{{education.degree}}</p>
-        <p class="ap-education-institute">{{education.institute}}</p>
-        <p class="ap-education-year">{{education.duration}}</p>
-        <p class="ap-education-excerpt">{{education.excerpt}}</p>
-    </div>
-    {% endfor %}
-
+    {% if site.education.size > 0 %}
+        {% for education in site.education %}
+        <div class="ap-education">
+            <p class="ap-education-degree">{{education.degree}}</p>
+            <p class="ap-education-institute">{{education.institute}}</p>
+            <p class="ap-education-year">{{education.duration}}</p>
+            <p class="ap-education-excerpt">{{education.excerpt}}</p>
+        </div>
+        {% endfor %}
+    {% else %}
+        <div class="ap-empty-message">
+            <p>🎓 Currently pursuing advanced studies in AI and machine learning. Working towards PhD applications to top-tier universities including Oxford.</p>
+        </div>
+    {% endif %}
 </div>
 {% endif %}
 
 {% if site.collection_option['skills']['visibility'] == true %}
 <div class="ap-line"></div>
-<!-- SKILLS -->
 <div class="ap-block">
     <p class="ap-subtitle">{{site.collection_option['skills']['label']}}</p>
-    {% for skill in site.skills %}
-    <div class="ap-skill">
-        <p class="ap-skill-category">{{skill.category}}</p>
-        <p class="ap-skill-details">{{skill.details}}</p>
-    </div>
-    {% endfor %}
-</div>
-{% endif %}
-
-{% if site.collection_option['projects']['visibility'] == true %}
-<div class="ap-line"></div>
-<!-- PROJECTS -->
-<div class="ap-block">
-    <p class="ap-subtitle">{{site.collection_option['projects']['label']}}</p>
-    {% for project in site.projects reversed %}
-    <div class="ap-project">
-        <a class="ap-project-title" href="{{project.url}}">{{project.title}}</a>
-        <p class="ap-project-year">{{project.year}}</p>
-        <p class="ap-project-excerpt">{{project.excerpt}}</p>
-        <p class="ap-project-tags">
-            {% for tag in project.tags %}
-            <span class="ap-project-chip">{{tag}}</span>
-            {% endfor %}
-        </p>
-    </div>
-    {% endfor %}
-
-    <!-- Additional Repositories -->
-    <div class="ap-additional-projects">
-        <p class="ap-subtitle">Other Projects</p>
-        <ul>
-            <li><a href="https://github.com/its-serah/CeliacAI-Classifier" target="_blank">🧬 CeliacAI-Classifier - AI-powered celiac disease classification</a></li>
-            <li><a href="https://github.com/its-serah/CultureClassifier" target="_blank">🌍 CultureClassifier - Cultural pattern recognition system</a></li>
-            <li><a href="https://github.com/its-serah/Event-Driven-Messaging-System" target="_blank">📨 Event-Driven Messaging System</a></li>
-            <li><a href="https://github.com/its-serah/ExplaVision" target="_blank">👁️ ExplaVision - Explainable vision AI system</a></li>
-            <li><a href="https://github.com/its-serah/QuantumML-LindbladODE" target="_blank">⚛️ QuantumML-LindbladODE - Quantum machine learning</a></li>
-            <li><a href="https://github.com/its-serah/Text2Kg" target="_blank">📊 Text2KG - Text to knowledge graph conversion</a></li>
-            <li><a href="https://github.com/its-serah/secureAI" target="_blank">🔒 SecureAI - Secure AI implementations</a></li>
-            <li><a href="https://github.com/its-serah/LLM-Engineering-Essentials" target="_blank">🤖 LLM Engineering Essentials</a></li>
-            <li><a href="https://github.com/its-serah/mistral-prompt-engineering-site" target="_blank">💬 Mistral Prompt Engineering Site</a></li>
-            <li><a href="https://github.com/its-serah/Nehna-Maakon-W-Haddkon" target="_blank">🤝 Nehna Maakon W Haddkon - Community project</a></li>
-        </ul>
-    </div>
-</div>
-{% endif %}
-
-{% if site.collection_option['publications']['visibility'] == true %}
-<div class="ap-line"></div>
-<!-- PUBLICATIONS -->
-<div class="ap-block">
-    <p class="ap-subtitle">{{site.collection_option['publications']['label']}}</p>
-    {% for publication in site.publications reversed %}
-    <div class="ap-publication">
-        <a class="ap-publication-title" href="{{publication.url}}">{{publication.title}}</a>
-        <p class="ap-publication-year">{{publication.year}}</p>
-        <p class="ap-publication-excerpt">{{publication.excerpt}}</p>
-    </div>
-    {% endfor %}
-</div>
-{% endif %}
-
-{% if site.collection_option['volunteerexperience']['visibility'] == true %}
-<div class="ap-line"></div>
-<!-- VOLUNTEER EXPERIENCE -->
-<div class="ap-block">
-    <p class="ap-subtitle">{{site.collection_option['volunteerexperience']['label']}}</p>
-    {% for experience in site.volunteerexperience %}
-    <div class="ap-experience">
-        <p class="ap-experience-title">{{experience.title}}</p>
-        <p class="ap-experience-year">{{experience.duration}}</p>
-        <p class="ap-experience-excerpt">{{experience.excerpt}}</p>
-    </div>
-    {% endfor %}
-</div>
-{% endif %}
-
-{% if site.collection_option['certifications']['visibility'] == true %}
-<div class="ap-line"></div>
-<!-- CERTIFICATIONS -->
-<div class="ap-block">
-    <p class="ap-subtitle">{{site.collection_option['certifications']['label']}}</p>
-    {% for certificate in site.certifications reversed %}
-    <div class="ap-certification">
-        <a class="ap-certification-title" href="{{certificate.certificate_url}}"
-            target="_blank">{{certificate.title}}</a>
-        <p class="ap-certification-institute">{{certificate.institute}}</p>
-        <p class="ap-certification-year">{{certificate.year}}</p>
-        <p class="ap-certification-excerpt">{{certificate.excerpt}}</p>
-    </div>
-    {% endfor %}
-</div>
-{% endif %}
-
-{% if site.collection_option['achievements']['visibility'] == true %}
-<div class="ap-line"></div>
-<!-- ACHIEVEMENTS -->
-<div class="ap-block">
-    <p class="ap-subtitle">{{site.collection_option['achievements']['label']}}</p>
-    {% for achievement in site.achievements reversed %}
-    <div class="ap-achievement">
-        <p class="ap-achievement-title">{{achievement.title}}</p>
-        <p class="ap-achievement-year">{{achievement.year}}</p>
-        <p class="ap-achievement-excerpt">{{achievement.excerpt}}</p>
-    </div>
-    {% endfor %}
+    {% if site.skills.size > 0 %}
+        {% for skill in site.skills %}
+        <div class="ap-skill">
+            <p class="ap-skill-category">{{skill.category}}</p>
+            <p class="ap-skill-details">{{skill.details}}</p>
+        </div>
+        {% endfor %}
+    {% else %}
+        <div class="ap-skills-preview">
+            <div class="ap-skill-category-card">
+                <h4>🤖 AI & Machine Learning</h4>
+                <p>Deep Learning, NLP, Computer Vision, PyTorch, TensorFlow, Hugging Face</p>
+            </div>
+            <div class="ap-skill-category-card">
+                <h4>⚛️ Quantum Computing</h4>
+                <p>Quantum Machine Learning, Qiskit, PennyLane, Quantum Algorithms</p>
+            </div>
+            <div class="ap-skill-category-card">
+                <h4>💻 Programming</h4>
+                <p>Python, R, MATLAB, JavaScript, Git, Docker, Linux</p>
+            </div>
+            <div class="ap-skill-category-card">
+                <h4>📊 Research Tools</h4>
+                <p>Statistical Analysis, Data Visualization, Academic Writing, LaTeX</p>
+            </div>
+        </div>
+    {% endif %}
 </div>
 {% endif %}

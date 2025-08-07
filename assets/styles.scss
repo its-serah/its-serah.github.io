@@ -989,6 +989,133 @@ body {
     }
 }
 
+// About page specific styling
+.ap-intro-section {
+    margin-bottom: 40px;
+}
+
+.ap-career-objective {
+    background: linear-gradient(135deg, rgba($accent, 0.08) 0%, rgba($link, 0.05) 100%);
+    border-left: 4px solid $accent;
+    padding: 25px;
+    border-radius: 12px;
+    font-size: 18px;
+    line-height: 1.8;
+    color: #444;
+    
+    i {
+        color: $link;
+        font-size: 20px;
+    }
+    
+    em {
+        color: $accent;
+        font-style: normal;
+        font-weight: 600;
+    }
+    
+    strong {
+        color: $link;
+        font-weight: 600;
+    }
+}
+
+.ap-quick-nav {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin: 40px 0;
+}
+
+.ap-nav-card {
+    background: linear-gradient(135deg, rgba($accent, 0.05) 0%, rgba($link, 0.03) 100%);
+    border: 1px solid rgba($accent, 0.15);
+    border-radius: 12px;
+    padding: 25px;
+    text-align: center;
+    transition: all 0.3s ease;
+    
+    h3 {
+        color: $link;
+        margin-bottom: 15px;
+        font-size: 18px;
+        font-weight: 600;
+    }
+    
+    p {
+        color: #666;
+        line-height: 1.6;
+        margin: 0;
+    }
+    
+    a {
+        color: $accent;
+        text-decoration: none;
+        font-weight: 500;
+        
+        &:hover {
+            color: $link;
+            text-decoration: underline;
+        }
+    }
+    
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba($accent, 0.15);
+        background: linear-gradient(135deg, rgba($accent, 0.08) 0%, rgba($link, 0.05) 100%);
+    }
+}
+
+.ap-empty-message {
+    text-align: center;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, rgba($accent, 0.03) 0%, rgba($link, 0.02) 100%);
+    border-radius: 12px;
+    border: 1px solid rgba($accent, 0.1);
+    
+    p {
+        color: #666;
+        font-style: italic;
+        margin: 0;
+        line-height: 1.6;
+    }
+}
+
+.ap-skills-preview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.ap-skill-category-card {
+    background: linear-gradient(135deg, rgba($accent, 0.08) 0%, rgba($link, 0.05) 100%);
+    border: 1px solid rgba($accent, 0.2);
+    border-radius: 12px;
+    padding: 25px;
+    transition: all 0.3s ease;
+    
+    h4 {
+        color: $accent;
+        margin-bottom: 15px;
+        font-size: 16px;
+        font-weight: 600;
+    }
+    
+    p {
+        color: #555;
+        line-height: 1.6;
+        margin: 0;
+        font-size: 15px;
+    }
+    
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba($accent, 0.2);
+        background: linear-gradient(135deg, rgba($accent, 0.12) 0%, rgba($link, 0.08) 100%);
+    }
+}
+
 @media (max-width: 768px) {
     .ap-container {
         margin: 0 auto;
