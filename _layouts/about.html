@@ -2,101 +2,136 @@
 layout: default
 ---
 
-<!-- Career Objective Section -->
-<div class="ap-intro-section">
-    <div class="ap-career-objective">
-        {{site.career-objective}}
-    </div>
-</div>
+<div class="container">
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1 class="hero-title">AI Researcher & Developer</h1>
+        <p class="hero-subtitle">PhD Candidate | Machine Learning Engineer | Innovation Catalyst</p>
+        <div class="hero-description">
+            {{site.career-objective}}
+        </div>
+    </section>
 
-<!-- Quick Navigation Cards -->
-<div class="ap-quick-nav">
-    <div class="ap-nav-card">
-        <h3>🔬 Research</h3>
-        <p>Explore my <a href="/publications">publications</a> and <a href="/projects">projects</a> in AI and quantum computing.</p>
-    </div>
-    <div class="ap-nav-card">
-        <h3>🎤 Speaking</h3>
-        <p>Check out my <a href="/workshops">workshops and conferences</a> where I share knowledge.</p>
-    </div>
-    <div class="ap-nav-card">
-        <h3>🏆 Recognition</h3>
-        <p>View my <a href="/achievements">awards and achievements</a> in academic and community work.</p>
-    </div>
-</div>
-
-<!-- Main Sections -->
-{% if site.collection_option['experience']['visibility'] == true %}
-<div class="ap-line"></div>
-<div class="ap-block">
-    <p class="ap-subtitle">{{site.collection_option['experience']['label']}}</p>
-    {% if site.experience.size > 0 %}
-        {% for experience in site.experience %}
-        <div class="ap-experience">
-            <p class="ap-experience-title">{{experience.title}}</p>
-            <p class="ap-experience-year">{{experience.duration}}</p>
-            <p class="ap-experience-excerpt">{{experience.excerpt}}</p>
+    <!-- Skills Section -->
+    <section class="section section-alt">
+        <div class="section-header">
+            <h2 class="section-title">Technical Expertise</h2>
+            <p class="section-subtitle">Core competencies spanning AI research, software engineering, and academic innovation</p>
         </div>
-        {% endfor %}
-    {% else %}
-        <div class="ap-empty-message">
-            <p>💼 Professional experience details will be updated soon. Currently focused on research and academic pursuits leading to PhD applications.</p>
-        </div>
-    {% endif %}
-</div>
-{% endif %}
-
-{% if site.collection_option['education']['visibility'] == true %}
-<div class="ap-line"></div>
-<div class="ap-block">
-    <p class="ap-subtitle">{{site.collection_option['education']['label']}}</p>
-    {% if site.education.size > 0 %}
-        {% for education in site.education %}
-        <div class="ap-education">
-            <p class="ap-education-degree">{{education.degree}}</p>
-            <p class="ap-education-institute">{{education.institute}}</p>
-            <p class="ap-education-year">{{education.duration}}</p>
-            <p class="ap-education-excerpt">{{education.excerpt}}</p>
-        </div>
-        {% endfor %}
-    {% else %}
-        <div class="ap-empty-message">
-            <p>🎓 Currently pursuing advanced studies in AI and machine learning. Working towards PhD applications to top-tier universities including Oxford.</p>
-        </div>
-    {% endif %}
-</div>
-{% endif %}
-
-{% if site.collection_option['skills']['visibility'] == true %}
-<div class="ap-line"></div>
-<div class="ap-block">
-    <p class="ap-subtitle">{{site.collection_option['skills']['label']}}</p>
-    {% if site.skills.size > 0 %}
-        {% for skill in site.skills %}
-        <div class="ap-skill">
-            <p class="ap-skill-category">{{skill.category}}</p>
-            <p class="ap-skill-details">{{skill.details}}</p>
-        </div>
-        {% endfor %}
-    {% else %}
-        <div class="ap-skills-preview">
-            <div class="ap-skill-category-card">
-                <h4>🤖 AI & Machine Learning</h4>
-                <p>Deep Learning, NLP, Computer Vision, PyTorch, TensorFlow, Hugging Face</p>
+        
+        <div class="grid grid-4">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">🤖 AI & Machine Learning</h3>
+                    <p>Deep Learning, Neural Networks, NLP, Computer Vision, PyTorch, TensorFlow, Transformers, LLMs</p>
+                </div>
             </div>
-            <div class="ap-skill-category-card">
-                <h4>⚛️ Quantum Computing</h4>
-                <p>Quantum Machine Learning, Qiskit, PennyLane, Quantum Algorithms</p>
+            
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">⚛️ Quantum Computing</h3>
+                    <p>Quantum Machine Learning, Qiskit, PennyLane, Quantum Algorithms, NISQ Applications</p>
+                </div>
             </div>
-            <div class="ap-skill-category-card">
-                <h4>💻 Programming</h4>
-                <p>Python, R, MATLAB, JavaScript, Git, Docker, Linux</p>
+            
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">💻 Software Engineering</h3>
+                    <p>Python, JavaScript, React, Docker, Git, CI/CD, Cloud Computing, System Architecture</p>
+                </div>
             </div>
-            <div class="ap-skill-category-card">
-                <h4>📊 Research Tools</h4>
-                <p>Statistical Analysis, Data Visualization, Academic Writing, LaTeX</p>
+            
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">📊 Research & Analytics</h3>
+                    <p>Statistical Analysis, Data Science, Scientific Computing, Academic Writing, LaTeX</p>
+                </div>
             </div>
         </div>
-    {% endif %}
+    </section>
+
+    <!-- Quick Links Section -->
+    <section class="section">
+        <div class="section-header">
+            <h2 class="section-title">Explore My Work</h2>
+        </div>
+        
+        <div class="grid grid-3">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">🔬 Research & Publications</h3>
+                    <p>Academic papers, research contributions, and scholarly work in AI and quantum computing.</p>
+                    <a href="/publications" class="btn btn-primary">View Publications</a>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">💻 Projects & Code</h3>
+                    <p>Open-source contributions, technical projects, and innovative solutions across various domains.</p>
+                    <a href="/projects" class="btn btn-primary">Explore Projects</a>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">🎤 Speaking & Teaching</h3>
+                    <p>Workshops, conferences, and educational initiatives where I share knowledge with the community.</p>
+                    <a href="/workshops" class="btn btn-primary">See Events</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education & Experience -->
+    <section class="section section-alt">
+        <div class="section-header">
+            <h2 class="section-title">Academic Journey</h2>
+        </div>
+        
+        <div class="grid grid-2">
+            {% if site.education.size > 0 %}
+                {% for education in site.education %}
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-subtitle">{{education.duration}}</div>
+                        <h3 class="card-title">{{education.degree}}</h3>
+                        <p><strong>{{education.institute}}</strong></p>
+                    </div>
+                    <div class="card-body">
+                        <p>{{education.excerpt}}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            {% else %}
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">🎓 Current Studies</h3>
+                        <p>Currently pursuing advanced studies in AI and machine learning, working towards PhD applications to top-tier universities including Oxford University.</p>
+                    </div>
+                </div>
+            {% endif %}
+            
+            {% if site.experience.size > 0 %}
+                {% for experience in site.experience %}
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-subtitle">{{experience.duration}}</div>
+                        <h3 class="card-title">{{experience.title}}</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>{{experience.excerpt}}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            {% else %}
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">💼 Research Focus</h3>
+                        <p>Currently dedicated to full-time research in AI and machine learning, contributing to open-source projects, and preparing for doctoral studies in computer science.</p>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </section>
 </div>
-{% endif %}
