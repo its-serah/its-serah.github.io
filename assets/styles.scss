@@ -2,8 +2,13 @@
 ---
 {% if site.color-theme == "blue" %}
 $link: #0099ff;
+$accent: #4A90E2;
 {% elsif site.color-theme == "red" %}
 $link: #862B0D;
+$accent: #C0392B;
+{% elsif site.color-theme == "purple" %}
+$link: #8E44AD;
+$accent: #9B59B6;
 {% endif %}
 
 * {
@@ -21,23 +26,6 @@ a:hover {
 
 }
 
-button.option-button {
-    background-color: #4A90E2;
-    color: #ffffff;
-    border: none;
-    padding: 12px 24px;
-    margin: 10px;
-    font-size: 16px;
-    font-weight: bold;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
-}
-
-button.option-button:hover {
-    background-color: #357ABD;
-    transform: translateY(-2px);
-}
 
 .ap-container {
     width: 80%;
@@ -100,9 +88,10 @@ button.option-button:hover {
 }
 
 .ap-line {
-    height: 2px;
+    height: 3px;
     margin: 40px 0;
-    background-color: #4A90E2;
+    background: linear-gradient(135deg, $accent 0%, $link 100%);
+    border-radius: 2px;
 }
 
 .ap-content {
@@ -599,47 +588,14 @@ button.option-button:hover {
     background-color: $link;
   }
 
-// Dice section styling
-#dice-section {
-    text-align: center;
-    margin: 40px 0;
-    padding: 40px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-}
-
-#dice-container {
-    display: inline-block;
-    margin: 20px auto;
-    canvas {
-        border-radius: 8px;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    }
-}
-
-#dice-result {
-    font-family: "DM Sans", sans-serif;
-    font-size: 20px;
-    font-weight: 600;
-    color: #ffffff;
-    margin-top: 20px;
-    opacity: 0;
-    transition: opacity 0.5s ease;
-    height: 30px;
-}
-
-.button-container {
-    text-align: center;
-    margin: 30px 0;
-}
 
 // Additional styling for sections
 .ap-additional-projects {
     margin-top: 30px;
     padding: 20px;
-    background-color: #f8f9fa;
-    border-radius: 8px;
+    background: linear-gradient(135deg, rgba($accent, 0.1) 0%, rgba($link, 0.05) 100%);
+    border-radius: 12px;
+    border: 1px solid rgba($accent, 0.2);
     
     ul {
         list-style: none;
@@ -649,12 +605,12 @@ button.option-button:hover {
             margin: 10px 0;
             
             a {
-                color: #4A90E2;
+                color: $accent;
                 font-weight: 500;
                 transition: color 0.3s;
                 
                 &:hover {
-                    color: #357ABD;
+                    color: $link;
                 }
             }
         }
@@ -667,7 +623,7 @@ button.option-button:hover {
     transition: color 0.3s;
     
     &:hover {
-        color: #4A90E2;
+        color: $accent;
         text-decoration: none;
     }
 }
@@ -703,7 +659,7 @@ button.option-button:hover {
         left: 0;
         width: 60px;
         height: 3px;
-        background-color: #4A90E2;
+        background: linear-gradient(135deg, $accent 0%, $link 100%);
     }
 }
 
@@ -720,14 +676,317 @@ body {
 
 // Project chips improvement
 .ap-project-tags .ap-project-chip {
-    background-color: #e3f2fd;
-    border: 1px solid #4A90E2;
-    color: #4A90E2;
+    background: linear-gradient(135deg, rgba($accent, 0.1) 0%, rgba($link, 0.05) 100%);
+    border: 1px solid $accent;
+    color: $link;
     border-radius: 16px;
     padding: 4px 12px;
     margin-right: 8px;
     font-size: 14px;
     display: inline-block;
+    font-weight: 500;
+}
+
+// New page layouts styling
+.ap-intro-text {
+    background: linear-gradient(135deg, rgba($accent, 0.08) 0%, rgba($link, 0.05) 100%);
+    border-left: 4px solid $accent;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    font-style: italic;
+    
+    p {
+        margin: 0;
+        color: #555;
+        line-height: 1.6;
+    }
+}
+
+// Empty state styling
+.ap-empty-state {
+    text-align: center;
+    padding: 40px 20px;
+    
+    h3 {
+        color: $link;
+        margin-bottom: 30px;
+        font-size: 28px;
+    }
+    
+    h4 {
+        color: $accent;
+        margin: 25px 0 15px;
+        font-size: 20px;
+    }
+    
+    ul {
+        text-align: left;
+        max-width: 600px;
+        margin: 0 auto 25px;
+        
+        li {
+            margin: 10px 0;
+            line-height: 1.5;
+        }
+    }
+}
+
+// Achievement specific styling
+.ap-achievement {
+    background: linear-gradient(135deg, rgba($accent, 0.03) 0%, rgba($link, 0.02) 100%);
+    border: 1px solid rgba($accent, 0.1);
+    margin: 20px 0;
+    position: relative;
+    
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba($accent, 0.15);
+    }
+}
+
+.ap-achievement-image {
+    margin: 15px 0;
+    text-align: center;
+    
+    img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+}
+
+.ap-achievement-links, .ap-workshop-links, .ap-publication-links, .ap-project-links {
+    margin: 15px 0;
+    
+    a {
+        display: inline-block;
+        padding: 8px 16px;
+        margin: 5px 10px 5px 0;
+        background: linear-gradient(135deg, $accent 0%, $link 100%);
+        color: white !important;
+        text-decoration: none;
+        border-radius: 20px;
+        font-size: 14px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        
+        &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba($accent, 0.3);
+            text-decoration: none;
+        }
+    }
+}
+
+// Workshop specific styling
+.ap-workshop {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+    margin: 20px 0;
+    border-left: 4px solid $accent;
+    transition: all 0.3s ease;
+    
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    }
+}
+
+.ap-workshop-title {
+    font-family: "DM Sans", sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: $link;
+    margin-bottom: 8px;
+}
+
+.ap-workshop-badge {
+    background: linear-gradient(135deg, $accent 0%, $link 100%);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+// Event category styling
+.ap-event-category, .ap-achievement-preview {
+    margin: 30px 0;
+    padding: 25px;
+    background: linear-gradient(135deg, rgba($accent, 0.05) 0%, rgba($link, 0.03) 100%);
+    border-radius: 12px;
+    border: 1px solid rgba($accent, 0.15);
+    
+    h4 {
+        margin-bottom: 15px;
+        font-size: 18px;
+        color: $link;
+    }
+    
+    ul {
+        margin: 0;
+        
+        li {
+            margin: 12px 0;
+            padding-left: 5px;
+        }
+    }
+}
+
+.ap-event-invite {
+    background: linear-gradient(135deg, $accent 0%, $link 100%);
+    color: white;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    margin-top: 30px;
+    
+    a {
+        color: white;
+        text-decoration: underline;
+        font-weight: 600;
+        
+        &:hover {
+            color: rgba(255, 255, 255, 0.9);
+        }
+    }
+}
+
+// Image placeholder styling
+.ap-image-placeholder, .ap-achievement-gallery-placeholder {
+    margin: 25px 0;
+    padding: 40px;
+    background: linear-gradient(135deg, rgba($accent, 0.1) 0%, rgba($link, 0.05) 100%);
+    border: 2px dashed rgba($accent, 0.3);
+    border-radius: 12px;
+    text-align: center;
+    
+    p {
+        color: $accent;
+        font-size: 18px;
+        margin: 0;
+    }
+}
+
+// Publication specific styling
+.ap-publication-authors {
+    font-style: italic;
+    color: #666;
+    font-size: 15px;
+}
+
+.ap-pub-link {
+    font-size: 14px;
+}
+
+// Personal/Hobbies page styling
+.ap-personal-section {
+    margin: 40px 0;
+    padding: 0;
+}
+
+.ap-personal-title {
+    font-family: "DM Sans", sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: $link;
+    margin-bottom: 20px;
+    border-bottom: 2px solid rgba($accent, 0.2);
+    padding-bottom: 10px;
+}
+
+.ap-passion-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin: 20px 0;
+}
+
+.ap-passion-item {
+    background: linear-gradient(135deg, rgba($accent, 0.08) 0%, rgba($link, 0.05) 100%);
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid rgba($accent, 0.15);
+    transition: all 0.3s ease;
+    
+    h4 {
+        color: $accent;
+        margin-bottom: 12px;
+        font-size: 16px;
+        font-weight: 600;
+    }
+    
+    p {
+        margin: 0;
+        line-height: 1.6;
+        color: #555;
+    }
+    
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba($accent, 0.2);
+    }
+}
+
+.ap-quirks-list {
+    background: linear-gradient(135deg, rgba($accent, 0.05) 0%, rgba($link, 0.03) 100%);
+    border-radius: 12px;
+    padding: 25px;
+    border: 1px solid rgba($accent, 0.1);
+    
+    ul {
+        margin: 0;
+        padding-left: 0;
+        list-style: none;
+        
+        li {
+            margin: 15px 0;
+            padding: 12px 20px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 8px;
+            border-left: 3px solid $accent;
+            line-height: 1.5;
+            transition: all 0.3s ease;
+            
+            &:hover {
+                background: rgba(255, 255, 255, 0.9);
+                transform: translateX(5px);
+            }
+        }
+    }
+}
+
+.ap-creative-list {
+    margin: 20px 0;
+    padding-left: 0;
+    list-style: none;
+    
+    li {
+        margin: 12px 0;
+        padding: 15px 20px;
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 8px;
+        border-left: 4px solid $link;
+        line-height: 1.6;
+        transition: all 0.3s ease;
+        
+        strong {
+            color: $accent;
+            font-weight: 600;
+        }
+        
+        &:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: translateX(3px);
+            box-shadow: 0 4px 15px rgba($accent, 0.1);
+        }
+    }
 }
 
 @media (max-width: 768px) {
@@ -738,7 +997,24 @@ body {
         padding: 15px;
     }
     
-    #dice-section {
+    .ap-intro-text {
+        padding: 15px;
+    }
+    
+    .ap-event-category, .ap-achievement-preview {
         padding: 20px;
+    }
+    
+    .ap-workshop {
+        padding: 20px;
+    }
+    
+    .ap-achievement-links a, 
+    .ap-workshop-links a, 
+    .ap-publication-links a, 
+    .ap-project-links a {
+        display: block;
+        margin: 10px 0;
+        text-align: center;
     }
 }

@@ -1,11 +1,11 @@
 name: Serah El-Rashidi
-tagline: Aspiring Researcher | NLP AND AI Enthusiast | Passionate about DATA 
+tagline: PhD Candidate | AI Research & Innovation | Creating Tomorrow's Technology Today
 career-objective: |
-  <i>The most damaging phrase in the language is "It’s always been done this way."</i> <br />
-  - Grace Hopper <br /> <br />
-  Hey there, call me Serah! I live in Lebanon and I plan on studying my phD abroad. I’m deeply involved in the Artificial Intelligence field and I believe in the usage of Ai for good, but we have a long road a head. I would like to make that road shorter and less desolate. My biggest wish is to make a positive impact on the world even if it was small. <br /> <br />
-  Research Interests: NLP, Deep Learning, LLMS, Machine Learning, and AI ethics
-color-theme: red # red or blue
+  <i>"The most damaging phrase in the language is 'It's always been done this way.'"</i> <br />
+  <em>— Grace Hopper</em> <br /> <br />
+  Welcome to my academic journey! I'm Serah, a passionate researcher at the intersection of artificial intelligence and human-centered innovation. Based in Lebanon with global ambitions, I'm pursuing doctoral studies focused on advancing AI for social good. My mission is to bridge the gap between cutting-edge research and meaningful real-world applications. <br /> <br />
+  <strong>Research Focus:</strong> Natural Language Processing • Deep Learning • Large Language Models • AI Ethics • Quantum Machine Learning
+color-theme: purple # red, blue, or purple
 url: academicportfolio.github.io
 baseurl: /
 paginate: 5
@@ -50,7 +50,10 @@ collections:
     output: false
     sort_by: year
   achievements:
-    output: false
+    output: true
+    sort_by: year
+  workshops:
+    output: true
     sort_by: year
 
 # About Page Options
@@ -69,21 +72,32 @@ collection_option:
     visibility: true
   publications: 
     label: Publications
-    visibility: false
+    visibility: true
   volunteerexperience: 
     label: Volunteer Experience
     visibility: true
   certifications: 
     label: Certifications
     visibility: true
-  achievements: 
-    label: Achievements
-    visibility: false
+  achievements:
+    label: Awards & Recognitions
+    visibility: true
+  workshops:
+    label: Workshops & Events
+    visibility: true
 
 navigation:
 - title: About
   url: /
-- title: Hobbies
+- title: Publications
+  url: /publications
+- title: Projects
+  url: /projects
+- title: Workshops & Events
+  url: /workshops
+- title: Awards & Achievements
+  url: /achievements
+- title: Personal
   url: /hobbies
 - title: Contact
   url: /contact

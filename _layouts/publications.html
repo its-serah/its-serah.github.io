@@ -1,0 +1,35 @@
+---
+layout: default
+---
+
+<div class="ap-block">
+    <p class="ap-subtitle">Research Publications</p>
+    <div class="ap-intro-text">
+        <p>My research contributions span artificial intelligence, natural language processing, and quantum computing applications. Here are my published works and contributions to the academic community.</p>
+    </div>
+
+    {% if site.publications.size > 0 %}
+        {% for publication in site.publications reversed %}
+        <div class="ap-publication">
+            <a class="ap-publication-title" href="{{publication.url}}">{{publication.title}}</a>
+            <p class="ap-publication-year">{{publication.year}} • {{publication.venue}}</p>
+            <p class="ap-publication-excerpt">{{publication.excerpt}}</p>
+            {% if publication.authors %}
+            <p class="ap-publication-authors"><strong>Authors:</strong> {{publication.authors}}</p>
+            {% endif %}
+            {% if publication.pdf %}
+            <p class="ap-publication-links">
+                <a href="{{publication.pdf}}" target="_blank" class="ap-pub-link">📄 PDF</a>
+                {% if publication.doi %}<a href="{{publication.doi}}" target="_blank" class="ap-pub-link">🔗 DOI</a>{% endif %}
+                {% if publication.code %}<a href="{{publication.code}}" target="_blank" class="ap-pub-link">💻 Code</a>{% endif %}
+            </p>
+            {% endif %}
+        </div>
+        {% endfor %}
+    {% else %}
+        <div class="ap-empty-state">
+            <p>📚 Publications coming soon! Currently working on several research papers that will be published in the near future.</p>
+            <p>In the meantime, check out my <a href="/projects">research projects</a> and <a href="/workshops">conference presentations</a>.</p>
+        </div>
+    {% endif %}
+</div>
