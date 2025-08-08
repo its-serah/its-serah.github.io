@@ -22,12 +22,7 @@
     <!-- Fixed Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="/" class="nav-brand">
-                <span class="brand-name">Sarah Rashidi</span>
-                <span class="brand-title">AI Researcher & PhD Candidate</span>
-            </a>
-            
-            <div class="nav-center">
+            <div class="nav-links">
                 {% for item in site.navigation %}
                 <a href="{{item.url | relative_url}}" class="nav-link {% if item.url == page.url %}active{% endif %}">
                     {{item.title}}
@@ -36,10 +31,6 @@
             </div>
             
             <div class="nav-actions">
-                <a href="https://www.linkedin.com/in/serahrashidi/" target="_blank" class="btn-reach-out">
-                    Reach Out
-                </a>
-                
                 <div class="theme-switcher">
                     <button class="theme-btn" data-theme="light" aria-label="Light mode" title="Light mode">
                         <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
