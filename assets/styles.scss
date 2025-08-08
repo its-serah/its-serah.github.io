@@ -183,18 +183,19 @@ body {
   }
 }
 
-// Theme Switcher - Clean and Intuitive
+// Theme Switcher - Compact and Clean
 .theme-switcher {
   display: flex;
   background: var(--color-surface);
-  border-radius: 24px;
-  padding: 4px;
+  border-radius: 20px;
+  padding: 3px;
   gap: 2px;
+  border: 1px solid var(--color-border);
 }
 
 .theme-btn {
-  width: 36px;
-  height: 36px;
+  width: 30px;
+  height: 30px;
   border: none;
   background: transparent;
   border-radius: 50%;
@@ -206,12 +207,12 @@ body {
   transition: all var(--transition);
   
   svg {
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
   }
   
   &:hover {
-    background: var(--color-border);
+    background: rgba(0, 0, 0, 0.05);
   }
   
   &.active {
@@ -222,6 +223,11 @@ body {
       background: var(--color-primary-hover);
     }
   }
+}
+
+[data-theme="dark"] .theme-btn:hover:not(.active),
+[data-theme="night"] .theme-btn:hover:not(.active) {
+  background: rgba(255, 255, 255, 0.1);
 }
 
 // 4. MAIN CONTENT
