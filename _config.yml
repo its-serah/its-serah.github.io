@@ -1,9 +1,9 @@
-name: Serah El-Rashidi
+name: Sarah Rashidi
 tagline: PhD Candidate | AI Research & Innovation | Creating Tomorrow's Technology Today
 career-objective: |
   <i>"The most damaging phrase in the language is 'It's always been done this way.'"</i> <br />
   <em>— Grace Hopper</em> <br /> <br />
-  Welcome to my academic journey! I'm Serah, a passionate researcher at the intersection of artificial intelligence and human-centered innovation. Based in Lebanon with global ambitions, I'm pursuing doctoral studies focused on advancing AI for social good. My mission is to bridge the gap between cutting-edge research and meaningful real-world applications. <br /> <br />
+  Welcome to my academic journey! I'm Sarah, a passionate researcher at the intersection of artificial intelligence and human-centered innovation. Based in Lebanon with global ambitions, I'm pursuing doctoral studies focused on advancing AI for social good. My mission is to bridge the gap between cutting-edge research and meaningful real-world applications. <br /> <br />
   <strong>Research Focus:</strong> Natural Language Processing • Deep Learning • Large Language Models • AI Ethics • Quantum Machine Learning
 color-theme: purple # red, blue, or purple
 url: academicportfolio.github.io
@@ -99,8 +99,6 @@ navigation:
   url: /achievements
 - title: Personal
   url: /hobbies
-- title: Contact
-  url: /contact
 
 include:
   - _pages
