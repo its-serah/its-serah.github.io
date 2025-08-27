@@ -93,8 +93,8 @@
         /* Basket Loader Animations */
         .basket-loader {
             position: relative;
-            width: 300px;
-            height: 300px;
+            width: 500px;
+            height: 400px;
             margin: 0 auto;
             display: flex;
             flex-direction: column;
@@ -102,12 +102,28 @@
             justify-content: center;
         }
         
+        /* Loading text */
+        .loading-text {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--theme-color);
+            margin-bottom: 30px;
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+            animation: textGlow 2s ease-in-out infinite;
+        }
+        
+        @keyframes textGlow {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; text-shadow: 0 0 10px var(--theme-color); }
+        }
+        
         .basket {
-            width: 200px;
+            width: 350px;
             height: auto;
             z-index: 10;
             position: relative;
-            animation: basketFloat 2s ease-in-out infinite;
+            animation: basketFloat 3s ease-in-out infinite;
         }
         
         @keyframes basketFloat {
@@ -136,32 +152,32 @@
         /* Individual item animations with staggered delays */
         #item1 {
             left: 45%;
-            animation: dropAndBounce 1.2s ease-out 1s forwards;
+            animation: dropAndBounce 1.5s ease-out 2s forwards;
         }
         
         #item2 {
             left: 55%;
-            animation: dropAndBounce 1.2s ease-out 2s forwards;
+            animation: dropAndBounce 1.5s ease-out 3.5s forwards;
         }
         
         #item3 {
             left: 40%;
-            animation: dropAndBounce 1.2s ease-out 3s forwards;
+            animation: dropAndBounce 1.5s ease-out 5s forwards;
         }
         
         #item4 {
             left: 60%;
-            animation: dropAndBounce 1.2s ease-out 4s forwards;
+            animation: dropAndBounce 1.5s ease-out 6.5s forwards;
         }
         
         #item5 {
             left: 50%;
-            animation: dropAndBounce 1.2s ease-out 5s forwards;
+            animation: dropAndBounce 1.5s ease-out 8s forwards;
         }
         
         #item6 {
             left: 35%;
-            animation: dropAndBounce 1.2s ease-out 6s forwards;
+            animation: dropAndBounce 1.5s ease-out 9.5s forwards;
         }
         
         @keyframes dropAndBounce {
@@ -200,17 +216,17 @@
             height: 100%;
             background: linear-gradient(90deg, var(--theme-color), var(--theme-color-light));
             border-radius: 2px;
-            animation: progressFill 7s ease-out forwards;
+            animation: progressFill 11s ease-out forwards;
         }
         
         @keyframes progressFill {
             0% { width: 0%; }
-            14% { width: 16.6%; }
-            28% { width: 33.2%; }
-            42% { width: 49.8%; }
-            56% { width: 66.4%; }
-            70% { width: 83%; }
-            85% { width: 95%; }
+            18% { width: 16.6%; }
+            32% { width: 33.2%; }
+            45% { width: 49.8%; }
+            59% { width: 66.4%; }
+            73% { width: 83%; }
+            86% { width: 95%; }
             100% { width: 100%; }
         }
         
@@ -228,6 +244,7 @@
     <!-- Animated Basket Loader -->
     <div class="preloader" id="preloader">
         <div class="basket-loader">
+            <div class="loading-text">Loading Sarah's Portfolio Starter Kit... 🚀</div>
             <img src="assets/images/loader.png" alt="Basket" class="basket" id="basket">
             <div class="falling-items">
                 <img src="assets/images/item1.png" alt="Item 1" class="item" id="item1">
@@ -695,7 +712,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             const preloader = document.getElementById('preloader');
             
-            // Hide preloader after animations complete (8 seconds)
+            // Hide preloader after animations complete (12 seconds)
             setTimeout(function() {
                 preloader.classList.add('fade-out');
                 
@@ -704,7 +721,7 @@
                     preloader.style.display = 'none';
                 }, 500); // Wait for fade transition to complete
                 
-            }, 8000); // Total animation time + small buffer
+            }, 12000); // Total animation time + small buffer
         });
         
         // Typing animation
