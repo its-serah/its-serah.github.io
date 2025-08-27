@@ -2,8 +2,12 @@
 
 document.addEventListener('DOMContentLoaded', function() {
     
-    // Hide preloader when page loads
+    // Hide preloader when page loads (guarded for custom long preloader)
     window.addEventListener('load', function() {
+        // If the page is using the long preloader (body has 'loading'), skip auto-hide.
+        if (document.body.classList.contains('loading')) {
+            return;
+        }
         document.body.classList.add('loaded');
         setTimeout(function() {
             const preloader = document.querySelector('.preloader');
