@@ -744,12 +744,14 @@
                     const element = document.getElementById(item.id);
                     if (element) {
                         element.classList.add('dropping');
-                        
+
                         // After animation completes, lock it in basket position
-                        setTimeout(() => {
+                        const onDropEnd = () => {
+                            element.removeEventListener('animationend', onDropEnd);
                             element.classList.remove('dropping');
                             element.classList.add('in-basket');
-                        }, 3000); // Animation duration
+                        };
+                        element.addEventListener('animationend', onDropEnd);
                     }
                 }, item.delay);
             });
