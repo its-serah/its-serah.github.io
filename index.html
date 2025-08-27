@@ -149,35 +149,34 @@
             transform: translateY(-100px) scale(0.8);
         }
         
-        /* Individual item animations with staggered delays */
+        /* Individual item positions and initial state */
         #item1 {
             left: 45%;
-            animation: dropAndBounce 3s ease-out 8s forwards;
         }
         
         #item2 {
             left: 55%;
-            animation: dropAndBounce 3s ease-out 16s forwards;
         }
         
         #item3 {
             left: 40%;
-            animation: dropAndBounce 3s ease-out 24s forwards;
         }
         
         #item4 {
             left: 60%;
-            animation: dropAndBounce 3s ease-out 32s forwards;
         }
         
         #item5 {
             left: 50%;
-            animation: dropAndBounce 3s ease-out 40s forwards;
         }
         
         #item6 {
             left: 35%;
-            animation: dropAndBounce 3s ease-out 48s forwards;
+        }
+        
+        /* Dropping animation */
+        .item.dropping {
+            animation: dropAndBounce 3s ease-out forwards;
         }
         
         @keyframes dropAndBounce {
@@ -197,14 +196,14 @@
             100% {
                 opacity: 1;
                 transform: translateY(145px) scale(1);
-                /* Item stays in the basket permanently */
             }
         }
         
-        /* Keep items visible after animation */
-        .item.dropped {
+        /* Final state - items stay in basket */
+        .item.in-basket {
             opacity: 1 !important;
             transform: translateY(145px) scale(1) !important;
+            animation: none !important;
         }
         
         /* Progress bar */
@@ -728,24 +727,30 @@
             const preloader = document.getElementById('preloader');
             const body = document.body;
             
-            // Mark items as dropped after their animations complete to keep them visible
+            // Item drop timings
             const itemTimings = [
-                { id: 'item1', delay: 8000, duration: 3000 },
-                { id: 'item2', delay: 16000, duration: 3000 },
-                { id: 'item3', delay: 24000, duration: 3000 },
-                { id: 'item4', delay: 32000, duration: 3000 },
-                { id: 'item5', delay: 40000, duration: 3000 },
-                { id: 'item6', delay: 48000, duration: 3000 }
+                { id: 'item1', delay: 8000 },
+                { id: 'item2', delay: 16000 },
+                { id: 'item3', delay: 24000 },
+                { id: 'item4', delay: 32000 },
+                { id: 'item5', delay: 40000 },
+                { id: 'item6', delay: 48000 }
             ];
             
-            // Add 'dropped' class to items after they finish animating to keep them visible
+            // Start dropping items
             itemTimings.forEach(item => {
                 setTimeout(() => {
                     const element = document.getElementById(item.id);
                     if (element) {
-                        element.classList.add('dropped');
+                        element.classList.add('dropping');
+                        
+                        // After animation completes, lock it in basket position
+                        setTimeout(() => {
+                            element.classList.remove('dropping');
+                            element.classList.add('in-basket');
+                        }, 3000); // Animation duration
                     }
-                }, item.delay + item.duration);
+                }, item.delay);
             });
             
             // Hide preloader after animations complete (60 seconds)
