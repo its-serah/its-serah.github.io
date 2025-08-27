@@ -136,32 +136,32 @@
         /* Individual item animations with staggered delays */
         #item1 {
             left: 45%;
-            animation: dropAndBounce 1s ease-out 0.5s forwards;
+            animation: dropAndBounce 1.2s ease-out 1s forwards;
         }
         
         #item2 {
             left: 55%;
-            animation: dropAndBounce 1s ease-out 1s forwards;
+            animation: dropAndBounce 1.2s ease-out 2s forwards;
         }
         
         #item3 {
             left: 40%;
-            animation: dropAndBounce 1s ease-out 1.5s forwards;
+            animation: dropAndBounce 1.2s ease-out 3s forwards;
         }
         
         #item4 {
             left: 60%;
-            animation: dropAndBounce 1s ease-out 2s forwards;
+            animation: dropAndBounce 1.2s ease-out 4s forwards;
         }
         
         #item5 {
             left: 50%;
-            animation: dropAndBounce 1s ease-out 2.5s forwards;
+            animation: dropAndBounce 1.2s ease-out 5s forwards;
         }
         
         #item6 {
             left: 35%;
-            animation: dropAndBounce 1s ease-out 3s forwards;
+            animation: dropAndBounce 1.2s ease-out 6s forwards;
         }
         
         @keyframes dropAndBounce {
@@ -200,16 +200,17 @@
             height: 100%;
             background: linear-gradient(90deg, var(--theme-color), var(--theme-color-light));
             border-radius: 2px;
-            animation: progressFill 4s ease-out forwards;
+            animation: progressFill 7s ease-out forwards;
         }
         
         @keyframes progressFill {
             0% { width: 0%; }
-            20% { width: 16.6%; }
-            40% { width: 33.2%; }
-            60% { width: 49.8%; }
-            80% { width: 66.4%; }
-            90% { width: 83%; }
+            14% { width: 16.6%; }
+            28% { width: 33.2%; }
+            42% { width: 49.8%; }
+            56% { width: 66.4%; }
+            70% { width: 83%; }
+            85% { width: 95%; }
             100% { width: 100%; }
         }
         
@@ -694,7 +695,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             const preloader = document.getElementById('preloader');
             
-            // Hide preloader after animations complete (4.5 seconds)
+            // Hide preloader after animations complete (8 seconds)
             setTimeout(function() {
                 preloader.classList.add('fade-out');
                 
@@ -703,7 +704,7 @@
                     preloader.style.display = 'none';
                 }, 500); // Wait for fade transition to complete
                 
-            }, 4500); // Total animation time + small buffer
+            }, 8000); // Total animation time + small buffer
         });
         
         // Typing animation
