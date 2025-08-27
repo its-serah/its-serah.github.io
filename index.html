@@ -197,7 +197,14 @@
             100% {
                 opacity: 1;
                 transform: translateY(145px) scale(1);
+                /* Item stays in the basket permanently */
             }
+        }
+        
+        /* Keep items visible after animation */
+        .item.dropped {
+            opacity: 1 !important;
+            transform: translateY(145px) scale(1) !important;
         }
         
         /* Progress bar */
@@ -720,6 +727,26 @@
         document.addEventListener('DOMContentLoaded', function() {
             const preloader = document.getElementById('preloader');
             const body = document.body;
+            
+            // Mark items as dropped after their animations complete to keep them visible
+            const itemTimings = [
+                { id: 'item1', delay: 8000, duration: 3000 },
+                { id: 'item2', delay: 16000, duration: 3000 },
+                { id: 'item3', delay: 24000, duration: 3000 },
+                { id: 'item4', delay: 32000, duration: 3000 },
+                { id: 'item5', delay: 40000, duration: 3000 },
+                { id: 'item6', delay: 48000, duration: 3000 }
+            ];
+            
+            // Add 'dropped' class to items after they finish animating to keep them visible
+            itemTimings.forEach(item => {
+                setTimeout(() => {
+                    const element = document.getElementById(item.id);
+                    if (element) {
+                        element.classList.add('dropped');
+                    }
+                }, item.delay + item.duration);
+            });
             
             // Hide preloader after animations complete (60 seconds)
             setTimeout(function() {
