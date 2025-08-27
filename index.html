@@ -156,36 +156,36 @@
             --landing-y: 250px; /* per-item final Y, overridden per item */
         }
         
-        /* Individual item positions and initial state */
+        /* Individual item positions and initial state - inside basket */
         #item1 {
-            left: 24%;
-            --landing-y: 242px;
+            left: 28%;
+            --landing-y: 275px;
         }
         
         #item2 {
-            left: 38%;
-            --landing-y: 258px;
+            left: 42%;
+            --landing-y: 285px;
         }
         
         #item3 {
-            left: 52%;
-            --landing-y: 236px;
+            left: 56%;
+            --landing-y: 270px;
         }
         
         #item4 {
-            left: 66%;
-            --landing-y: 248px;
+            left: 65%;
+            --landing-y: 280px;
         }
         
         #item5 {
-            left: 10%;
-            --landing-y: 225px;
+            left: 20%;
+            --landing-y: 265px;
             width: 140px; /* Even smaller */
         }
         
         #item6 {
-            left: 75%;
-            --landing-y: 220px;
+            left: 70%;
+            --landing-y: 260px;
         }
         
         /* Dropping animation */
@@ -220,35 +220,29 @@
             animation: none !important;
         }
         
-        /* Progress bar */
+        /* Progress dots */
         .loader-progress {
             position: absolute;
             bottom: -30px;
             width: 200px;
-            height: 4px;
-            background-color: rgba(255, 255, 255, 0.2);
-            border-radius: 2px;
-            overflow: hidden;
+            height: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
         
-        .progress-bar {
-            width: 0;
-            height: 100%;
-            background: linear-gradient(90deg, var(--theme-color), var(--theme-color-light));
-            border-radius: 2px;
-            animation: progressFill 24s ease-out forwards;
+        .progress-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: rgba(221, 160, 221, 0.3); /* Pastel purple */
+            transition: background-color 0.3s ease;
         }
         
-        @keyframes progressFill {
-            0% { width: 0%; }
-            16% { width: 16.6%; }
-            32% { width: 33.2%; }
-            48% { width: 49.8%; }
-            64% { width: 66.4%; }
-            80% { width: 83%; }
-            92% { width: 95%; }
-            100% { width: 100%; }
+        .progress-dot.active {
+            background-color: #dda0dd; /* Pastel purple active */
         }
+        
         
         /* Hide main content during preloader */
         body.loading .container,
@@ -283,7 +277,12 @@
                 <img src="assets/images/item6.png" alt="Item 6" class="item" id="item6">
             </div>
             <div class="loader-progress">
-                <div class="progress-bar"></div>
+                <div class="progress-dot" id="dot1"></div>
+                <div class="progress-dot" id="dot2"></div>
+                <div class="progress-dot" id="dot3"></div>
+                <div class="progress-dot" id="dot4"></div>
+                <div class="progress-dot" id="dot5"></div>
+                <div class="progress-dot" id="dot6"></div>
             </div>
         </div>
     </div>
@@ -752,7 +751,7 @@
             ];
             
             // Start dropping items
-            itemTimings.forEach(item => {
+            itemTimings.forEach((item, index) => {
                 setTimeout(() => {
                     const element = document.getElementById(item.id);
                     if (element) {
@@ -763,6 +762,10 @@
                             element.removeEventListener('animationend', onDropEnd);
                             element.classList.remove('dropping');
                             element.classList.add('in-basket');
+                            
+                            // Activate corresponding dot
+                            const dot = document.getElementById(`dot${index + 1}`);
+                            if (dot) dot.classList.add('active');
                         };
                         element.addEventListener('animationend', onDropEnd);
                     }
