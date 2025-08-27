@@ -230,6 +230,14 @@
             100% { width: 100%; }
         }
         
+        /* Hide main content during preloader */
+        body.loading .container,
+        body.loading nav,
+        body.loading .scroll-up,
+        body.loading .social-icons {
+            display: none;
+        }
+        
         /* Preloader fade out */
         .preloader.fade-out {
             opacity: 0;
@@ -239,7 +247,7 @@
     </style>
 </head>
 
-<body class="theme-dark" onselectstart="return false">
+<body class="theme-dark loading" onselectstart="return false">
     
     <!-- Animated Basket Loader -->
     <div class="preloader" id="preloader">
@@ -711,10 +719,12 @@
         // Basket Loader Controller
         document.addEventListener('DOMContentLoaded', function() {
             const preloader = document.getElementById('preloader');
+            const body = document.body;
             
             // Hide preloader after animations complete (60 seconds)
             setTimeout(function() {
                 preloader.classList.add('fade-out');
+                body.classList.remove('loading'); // Show main content
                 
                 // Remove preloader from DOM after fade transition
                 setTimeout(function() {
