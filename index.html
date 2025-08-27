@@ -105,11 +105,12 @@
         
         /* Loading text */
         .loading-text {
-            font-family: 'Abril Fatface', 'Poppins', sans-serif;
-            font-size: clamp(32px, 7vw, 68px);
+            font-family: 'Amelia', 'Abril Fatface', 'Poppins', sans-serif;
+            font-size: clamp(28px, 6vw, 64px);
             font-weight: 900;
-            margin-bottom: 32px;
+            margin-bottom: 24px;
             text-align: center;
+            white-space: nowrap;
             background: linear-gradient(90deg, #ff66cc, #a855f7);
             -webkit-background-clip: text;
             background-clip: text;
@@ -149,40 +150,40 @@
         
         .item {
             position: absolute;
-            width: 70px;
+            width: 210px;
             height: auto;
             opacity: 0;
-            transform: translateY(-100px) scale(0.9);
+            transform: translateY(-100px) scale(1);
         }
         
         /* Individual item positions and initial state */
         #item1 {
-            left: 44%;
+            left: 39%;
         }
         
         #item2 {
-            left: 54%;
+            left: 51%;
         }
         
         #item3 {
-            left: 40%;
+            left: 34%;
         }
         
         #item4 {
-            left: 60%;
+            left: 58%;
         }
         
         #item5 {
-            left: 48%;
+            left: 45%;
         }
         
         #item6 {
-            left: 36%;
+            left: 29%;
         }
         
         /* Dropping animation */
         .item.dropping {
-            animation: dropAndBounce 2.5s ease-out forwards;
+            animation: dropAndBounce 2s ease-out forwards;
         }
         
         @keyframes dropAndBounce {
@@ -191,24 +192,24 @@
                 transform: translateY(-100px) scale(0.8);
             }
             60% {
-                transform: translateY(170px) scale(1);
+                transform: translateY(210px) scale(1);
             }
             80% {
-                transform: translateY(160px) scale(1.1);
+                transform: translateY(200px) scale(1.1);
             }
             90% {
-                transform: translateY(165px) scale(0.95);
+                transform: translateY(205px) scale(0.95);
             }
             100% {
                 opacity: 1;
-                transform: translateY(165px) scale(1);
+                transform: translateY(205px) scale(1);
             }
         }
         
         /* Final state - items stay in basket */
         .item.in-basket {
             opacity: 1 !important;
-            transform: translateY(165px) scale(1) !important;
+            transform: translateY(205px) scale(1) !important;
             animation: none !important;
         }
         
@@ -228,7 +229,7 @@
             height: 100%;
             background: linear-gradient(90deg, var(--theme-color), var(--theme-color-light));
             border-radius: 2px;
-            animation: progressFill 40s ease-out forwards;
+            animation: progressFill 32s ease-out forwards;
         }
         
         @keyframes progressFill {
@@ -735,12 +736,12 @@
             
             // Item drop timings
             const itemTimings = [
-                { id: 'item1', delay: 5000 },
-                { id: 'item2', delay: 11000 },
-                { id: 'item3', delay: 17000 },
-                { id: 'item4', delay: 23000 },
-                { id: 'item5', delay: 29000 },
-                { id: 'item6', delay: 35000 }
+                { id: 'item1', delay: 3000 },
+                { id: 'item2', delay: 8000 },
+                { id: 'item3', delay: 13000 },
+                { id: 'item4', delay: 18000 },
+                { id: 'item5', delay: 23000 },
+                { id: 'item6', delay: 28000 }
             ];
             
             // Start dropping items
@@ -771,7 +772,7 @@
                     preloader.style.display = 'none';
                 }, 500); // Wait for fade transition to complete
                 
-            }, 45000); // Slightly faster total duration with buffer
+            }, 35000); // Faster total duration with small buffer
         });
         
         // Typing animation
