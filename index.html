@@ -104,10 +104,10 @@
         
         /* Loading text */
         .loading-text {
-            font-size: 24px;
-            font-weight: 600;
+            font-size: 32px;
+            font-weight: 700;
             color: var(--theme-color);
-            margin-bottom: 30px;
+            margin-bottom: 40px;
             text-align: center;
             font-family: 'Poppins', sans-serif;
             animation: textGlow 2s ease-in-out infinite;
@@ -152,32 +152,32 @@
         /* Individual item animations with staggered delays */
         #item1 {
             left: 45%;
-            animation: dropAndBounce 2s ease-out 3s forwards;
+            animation: dropAndBounce 3s ease-out 8s forwards;
         }
         
         #item2 {
             left: 55%;
-            animation: dropAndBounce 2s ease-out 6s forwards;
+            animation: dropAndBounce 3s ease-out 16s forwards;
         }
         
         #item3 {
             left: 40%;
-            animation: dropAndBounce 2s ease-out 9s forwards;
+            animation: dropAndBounce 3s ease-out 24s forwards;
         }
         
         #item4 {
             left: 60%;
-            animation: dropAndBounce 2s ease-out 12s forwards;
+            animation: dropAndBounce 3s ease-out 32s forwards;
         }
         
         #item5 {
             left: 50%;
-            animation: dropAndBounce 2s ease-out 15s forwards;
+            animation: dropAndBounce 3s ease-out 40s forwards;
         }
         
         #item6 {
             left: 35%;
-            animation: dropAndBounce 2s ease-out 18s forwards;
+            animation: dropAndBounce 3s ease-out 48s forwards;
         }
         
         @keyframes dropAndBounce {
@@ -216,17 +216,17 @@
             height: 100%;
             background: linear-gradient(90deg, var(--theme-color), var(--theme-color-light));
             border-radius: 2px;
-            animation: progressFill 20s ease-out forwards;
+            animation: progressFill 55s ease-out forwards;
         }
         
         @keyframes progressFill {
             0% { width: 0%; }
-            15% { width: 16.6%; }
-            30% { width: 33.2%; }
-            45% { width: 49.8%; }
-            60% { width: 66.4%; }
-            75% { width: 83%; }
-            90% { width: 95%; }
+            16% { width: 16.6%; }
+            32% { width: 33.2%; }
+            48% { width: 49.8%; }
+            64% { width: 66.4%; }
+            80% { width: 83%; }
+            92% { width: 95%; }
             100% { width: 100%; }
         }
         
@@ -244,7 +244,7 @@
     <!-- Animated Basket Loader -->
     <div class="preloader" id="preloader">
         <div class="basket-loader">
-            <div class="loading-text">Loading Sarah's Portfolio Starter Kit... 🚀</div>
+            <div class="loading-text">Loading Sarah's Portfolio Starter Kit</div>
             <img src="assets/images/loader.png" alt="Basket" class="basket" id="basket">
             <div class="falling-items">
                 <img src="assets/images/item1.png" alt="Item 1" class="item" id="item1">
@@ -712,7 +712,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             const preloader = document.getElementById('preloader');
             
-            // Hide preloader after animations complete (22 seconds)
+            // Hide preloader after animations complete (60 seconds)
             setTimeout(function() {
                 preloader.classList.add('fade-out');
                 
@@ -721,7 +721,7 @@
                     preloader.style.display = 'none';
                 }, 500); // Wait for fade transition to complete
                 
-            }, 22000); // Total animation time + small buffer
+            }, 60000); // Total animation time + small buffer
         });
         
         // Typing animation
