@@ -151,31 +151,38 @@
             height: auto;
             opacity: 0;
             transform: translateY(-100px) scale(1);
+            --landing-y: 250px; /* per-item final Y, overridden per item */
         }
         
         /* Individual item positions and initial state */
         #item1 {
-            left: 35%;
+            left: 24%;
+            --landing-y: 242px;
         }
         
         #item2 {
-            left: 45%;
+            left: 38%;
+            --landing-y: 258px;
         }
         
         #item3 {
-            left: 55%;
+            left: 52%;
+            --landing-y: 236px;
         }
         
         #item4 {
-            left: 48%;
+            left: 66%;
+            --landing-y: 248px;
         }
         
         #item5 {
-            left: 60%;
+            left: 44%;
+            --landing-y: 262px;
         }
         
         #item6 {
-            left: 41%;
+            left: 58%;
+            --landing-y: 240px;
         }
         
         /* Dropping animation */
@@ -189,24 +196,24 @@
                 transform: translateY(-100px) scale(0.8);
             }
             60% {
-                transform: translateY(255px) scale(1);
+                transform: translateY(calc(var(--landing-y) + 5px)) scale(1);
             }
             80% {
-                transform: translateY(245px) scale(1.1);
+                transform: translateY(calc(var(--landing-y) - 10px)) scale(1.1);
             }
             90% {
-                transform: translateY(250px) scale(0.95);
+                transform: translateY(var(--landing-y)) scale(0.95);
             }
             100% {
                 opacity: 1;
-                transform: translateY(250px) scale(1);
+                transform: translateY(var(--landing-y)) scale(1);
             }
         }
         
         /* Final state - items stay in basket */
         .item.in-basket {
             opacity: 1 !important;
-            transform: translateY(250px) scale(1) !important;
+            transform: translateY(var(--landing-y)) scale(1) !important;
             animation: none !important;
         }
         
