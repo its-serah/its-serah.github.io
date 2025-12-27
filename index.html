@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en-US" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <title>Sarah Rashidi - AI Expert & Researcher</title>
@@ -8,8 +8,6 @@
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i&display=swap" rel="stylesheet">
     
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -20,42 +18,46 @@
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ionicons@5.5.2/dist/css/ionicons.min.css">
     
+    <!-- Leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIhtFFihAy+K5fLs3cJp8ty+S2JbS0i0p3s=" crossorigin="">
+    
     <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
     
     <style>
         :root {
-            /* Beautiful Color Palette */
-            --blossom: #738FE3;
-            --shore-kiss: #B8C1FA;
-            --dreamy: #E6E8FD;
-            --flat-latte: #FFF5EC;
-            --berry-blush: #FF899A;
-            --froath-berry: #FFCFD6;
+            /* Muted Core Palette */
+            --blossom: #6c7a89;         /* slate accent */
+            --shore-kiss: #a2adb8;      /* soft blue-gray */
+            --dreamy: #f5f6f7;          /* gentle base */
+            --flat-latte: #f1ece4;      /* warm neutral */
+            --berry-blush: #b89f84;     /* muted clay */
+            --froath-berry: #e6ddd1;    /* soft highlight */
+            --font-base: 'Inter', sans-serif;
             
+            /* Dark-first defaults */
+            --bg-primary: #0b1217;
+            --bg-secondary: #111a21;
+            --bg-accent: #16212a;
+            --text-primary: #f4f4ef;
+            --text-secondary: #c7cbd3;
+            --text-accent: var(--shore-kiss);
+            --border-color: rgba(135, 148, 161, 0.28);
+            --shadow: 0 12px 50px rgba(4, 6, 10, 0.6);
+            --shadow-hover: 0 22px 70px rgba(4, 6, 10, 0.7);
+        }
+        
+        [data-theme="light"] {
             /* Light Mode Variables */
             --bg-primary: var(--flat-latte);
             --bg-secondary: #ffffff;
             --bg-accent: var(--dreamy);
-            --text-primary: #2c3e50;
-            --text-secondary: #5a6c7d;
+            --text-primary: #1f242b;
+            --text-secondary: #4c5561;
             --text-accent: var(--blossom);
-            --border-color: rgba(115, 143, 227, 0.2);
-            --shadow: 0 10px 40px rgba(115, 143, 227, 0.1);
-            --shadow-hover: 0 20px 60px rgba(115, 143, 227, 0.2);
-        }
-        
-        [data-theme="dark"] {
-            /* Dark Mode Variables */
-            --bg-primary: #1a1a2e;
-            --bg-secondary: #16213e;
-            --bg-accent: #0f3460;
-            --text-primary: #eee;
-            --text-secondary: #b8c1fa;
-            --text-accent: var(--shore-kiss);
-            --border-color: rgba(184, 193, 250, 0.2);
-            --shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-            --shadow-hover: 0 20px 60px rgba(0, 0, 0, 0.4);
+            --border-color: rgba(108, 122, 137, 0.2);
+            --shadow: 0 10px 40px rgba(78, 87, 98, 0.1);
+            --shadow-hover: 0 20px 60px rgba(78, 87, 98, 0.15);
         }
         
         * {
@@ -71,7 +73,7 @@
         body {
             background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
             color: var(--text-primary);
-            font-family: 'Inter', 'Poppins', sans-serif;
+            font-family: var(--font-base);
             line-height: 1.6;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             overflow-x: hidden;
@@ -101,7 +103,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, var(--flat-latte) 0%, var(--dreamy) 100%);
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-accent) 100%);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -158,18 +160,16 @@
         
         /* Loading text with elegant typography */
         .loading-text {
-            font-family: 'Playfair Display', 'Georgia', serif;
-            font-size: clamp(32px, 7vw, 72px);
-            font-weight: 700;
+            font-family: var(--font-base);
+            font-size: clamp(22px, 5vw, 44px);
+            font-weight: 600;
             margin-bottom: 30px;
             text-align: center;
-            background: linear-gradient(135deg, var(--blossom), var(--berry-blush), var(--shore-kiss));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: 0.5px;
-            animation: textShimmer 3s ease-in-out infinite;
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            color: var(--text-accent);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-shadow: 0 0 12px rgba(184, 193, 250, 0.35);
+            transition: color 0.3s ease, text-shadow 0.3s ease;
         }
         
         @keyframes textShimmer {
@@ -295,12 +295,12 @@
             width: 8px;
             height: 8px;
             border-radius: 50%;
-            background-color: rgba(221, 160, 221, 0.3); /* Pastel purple */
+            background-color: rgba(162, 173, 184, 0.3); /* Muted slate */
             transition: background-color 0.3s ease;
         }
         
         .progress-dot.active {
-            background-color: #dda0dd; /* Pastel purple active */
+            background-color: #a2adb8; /* Slate active */
         }
         
         
@@ -349,7 +349,7 @@
         
         /* Modern Card Styles */
         .modern-card {
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(17, 26, 51, 0.9);
             backdrop-filter: blur(20px);
             border-radius: 20px;
             border: 1px solid var(--border-color);
@@ -358,8 +358,8 @@
             overflow: hidden;
         }
         
-        [data-theme="dark"] .modern-card {
-            background: rgba(22, 33, 62, 0.9);
+        [data-theme="light"] .modern-card {
+            background: rgba(255, 255, 255, 0.9);
         }
         
         .modern-card:hover {
@@ -367,16 +367,83 @@
             box-shadow: var(--shadow-hover);
         }
         
+        .teaching-card {
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 28px 32px;
+        }
+        
+        .teaching-card .course-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-accent);
+        }
+        
+        .teaching-card .course-badge span {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--text-accent);
+            display: inline-block;
+        }
+        
+        .teaching-card h5 {
+            margin: 0;
+            font-size: 1.4rem;
+            color: var(--text-primary);
+        }
+        
+        .teaching-card p {
+            margin: 0;
+            color: var(--text-secondary);
+        }
+        
+        .teaching-card .course-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-top: 6px;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+        
+        .teaching-card .course-meta span {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
         /* Navigation Styles */
         .navbar {
-            background: rgba(255, 255, 255, 0.95) !important;
+            background: rgba(11, 16, 32, 0.92) !important;
             backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border-color);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
-        [data-theme="dark"] .navbar {
-            background: rgba(22, 33, 62, 0.95) !important;
+        [data-theme="light"] .navbar {
+            background: rgba(255, 255, 255, 0.92) !important;
+        }
+        
+        .navbar .nav-link,
+        .navbar .navbar-brand h3 {
+            color: var(--text-primary) !important;
+        }
+        
+        .navbar .nav-link.active {
+            color: var(--text-accent) !important;
+        }
+        
+        .navbar .nav-link:hover,
+        .navbar .nav-link:focus {
+            color: var(--text-accent) !important;
         }
         
         /* Smooth Section Animations */
@@ -411,25 +478,132 @@
         
         /* Button Styles */
         .modern-btn {
-            background: linear-gradient(135deg, var(--blossom), var(--shore-kiss));
-            border: none;
-            border-radius: 15px;
-            color: white;
-            padding: 15px 30px;
-            font-weight: 600;
+            background: transparent;
+            border: 1.5px solid var(--shore-kiss);
+            border-radius: 14px;
+            color: var(--text-accent);
+            padding: 13px 28px;
+            font-weight: 700;
+            letter-spacing: 0.1px;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: var(--shadow);
+            gap: 6px;
+            transition: all 0.25s ease;
+            box-shadow: 0 12px 40px rgba(115, 143, 227, 0.15);
             cursor: pointer;
         }
         
         .modern-btn:hover {
-            transform: translateY(-3px);
+            background: var(--bg-accent);
+            color: var(--text-primary);
+            border-color: var(--blossom);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+        
+        /* About Card Refresh */
+        .about-card {
+            background: linear-gradient(155deg, rgba(255, 241, 230, 0.06) 0%, rgba(21, 26, 47, 0.92) 100%);
+            border: 1px solid rgba(200, 198, 255, 0.28);
+            border-radius: 20px;
+            padding: 32px;
+            box-shadow: var(--shadow);
+        }
+        
+        .about-eyebrow {
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            font-size: 0.9rem;
+            color: var(--text-accent);
+            margin-bottom: 10px;
+        }
+        
+        .about-title {
+            font-size: clamp(1.6rem, 2vw, 2.1rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+        
+        .about-body {
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+            line-height: 1.7;
+        }
+        
+        .about-pill-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 18px;
+        }
+        
+        .about-pill {
+            background: rgba(184, 159, 132, 0.16);
+            color: var(--text-primary);
+            border: 1px solid rgba(184, 159, 132, 0.4);
+            border-radius: 999px;
+            padding: 8px 14px;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        
+        .about-meta {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+            margin-top: 6px;
+        }
+        
+        .about-meta-item {
+            padding: 12px 14px;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            background: rgba(11, 15, 35, 0.8);
+        }
+        
+        [data-theme="light"] .about-meta-item {
+            background: rgba(255, 255, 255, 0.6);
+        }
+        
+        .about-meta-label {
+            display: block;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 4px;
+            letter-spacing: 0.2px;
+        }
+        
+        .about-meta-value {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+        
+        .about-meta-value a {
+            color: inherit;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(200, 198, 255, 0.35);
+            padding-bottom: 2px;
+        }
+        
+        .about-meta-value a:hover {
+            color: var(--text-accent);
+            border-color: var(--text-accent);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--blossom), var(--shore-kiss));
+            border: none;
+            color: #0b1020;
+            font-weight: 700;
+        }
+        
+        .btn-primary:hover,
+        .btn-primary:focus {
+            background: linear-gradient(135deg, var(--shore-kiss), var(--blossom));
             box-shadow: var(--shadow-hover);
-            color: white;
+            color: #0b1020;
         }
         
         /* Hide main content during preloader */
@@ -450,7 +624,7 @@
     </style>
 </head>
 
-<body class="theme-light loading" onselectstart="return false">
+<body class="loading" onselectstart="return false">
     
     <!-- Theme Toggle Button -->
     <div class="theme-toggle" id="themeToggle"></div>
@@ -508,9 +682,6 @@
                     <li class="menu-item">
                         <a href="#publication-sec" class="nav-link">Publications</a>
                     </li>
-                    <li class="menu-item">
-                        <a href="#contact-sec" class="nav-link">Contact</a>
-                    </li>
                 </ul>
             </div>
         </div>
@@ -543,11 +714,6 @@
                 </a>
             </li>
             <li>
-                <a href="tel:+961XXXXXXXX">
-                    <i class="icon fas fa-phone"></i>
-                </a>
-            </li>
-            <li>
                 <a target="_blank" href="https://scholar.google.com/">
                     <i class="icon fas fa-graduation-cap"></i>
                 </a>
@@ -569,10 +735,7 @@
                                 <span class="typing_text"></span>
                             </h4>
                             <h1 class="display-6 lh-2 mb-4">Driving innovation at the frontier of AI.</h1>
-                            <a class="modern-btn" href="#contact-sec" role="button">
-                                <i class="fas fa-paper-plane"></i>
-                                Contact Me
-                            </a>
+                            <a class="modern-btn" href="https://linkedin.com/in/sarah-el-rashidi" target="_blank" rel="noopener" role="button">Connect on LinkedIn</a>
                         </div>
                     </div>
                 </div>
@@ -590,24 +753,35 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="about-content">
-                            <h2>Who am I?</h2>
-                            <h2>I'm a Tech Leader & AI Developer.</h2>
-                            <p>
-                                Welcome to my digital space! I'm Serah, a passionate tech entrepreneur and AI developer who founded CodeWithSerah, building a global STEAM community with 900+ Gen Z & Alpha members across 15+ countries.
-                                <br><br>
-                                Currently pursuing advanced studies in Machine Learning at Oxford and Lebanese University, I specialize in AI/ML development, quantum computing research, and community building in STEM education.
-                                <br><br>
-                                From leading technical teams to mentoring the next generation of developers, I'm dedicated to making technology accessible and inclusive for everyone.
-                                <br><br>
-                                If you have any questions, want to collaborate, or simply want to chat about tech, please <a href="#contact-sec">reach out</a>!
-                            </p>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <p><span class="text-dark me-3">Name:</span> Serah Rashidi</p>
-                                    <p><span class="text-dark me-3">Location:</span> Lebanon</p>
+                            <div class="about-card">
+                                <p class="about-eyebrow">About Sarah</p>
+                                <h2 class="about-title">Tech leader & AI developer designing inclusive, human-centered products.</h2>
+                                <p class="about-body">
+                                    Founder of CodeWithSerah (900+ Gen Z & Alpha across 15+ countries) and current ML student at Oxford & Lebanese University.
+                                    I build AI/ML solutions, explore quantum horizons, and mentor the next wave of builders through hands-on programs.
+                                </p>
+                                <div class="about-pill-wrap">
+                                    <span class="about-pill">AI/ML delivery</span>
+                                    <span class="about-pill">Quantum-curious</span>
+                                    <span class="about-pill">STEM community builder</span>
                                 </div>
-                                <div class="col-sm-6">
-                                    <p><span class="text-dark me-3">Email:</span> serah.elrashidi@gmail.com</p>
+                                <div class="about-meta">
+                                    <div class="about-meta-item">
+                                        <span class="about-meta-label">Based in</span>
+                                        <span class="about-meta-value">Lebanon</span>
+                                    </div>
+                                    <div class="about-meta-item">
+                                        <span class="about-meta-label">Currently</span>
+                                        <span class="about-meta-value">ML studies @ Oxford & Lebanese University</span>
+                                    </div>
+                                    <div class="about-meta-item">
+                                        <span class="about-meta-label">Community</span>
+                                        <span class="about-meta-value">CodeWithSerah · 900+ members</span>
+                                    </div>
+                                    <div class="about-meta-item">
+                                        <span class="about-meta-label">Say hi</span>
+                                        <span class="about-meta-value"><a href="mailto:serah.elrashidi@gmail.com">serah.elrashidi@gmail.com</a></span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -928,6 +1102,47 @@
                                 </ul>
                             </div>
                         </div>
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="single-service">
+                                <i class="service-icon fas fa-code"></i>
+                                <h6 class="service-title">Intro to Programming in C++ (Lab)</h6>
+                                <ul>
+                                    <li>Introduction into Programming Course in C++ with Lab</li>
+                                    <li>C++ syntax, data types, and control flow</li>
+                                    <li>Functions, modular design, and debugging</li>
+                                    <li>OOP fundamentals with practical examples</li>
+                                    <li>Hands-on lab sessions with toolchain setup</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Teaching Spotlight Section -->
+        <section class="section" id="teaching-spotlight">
+            <div class="container">
+                <div class="section-heading">
+                    <h2 class="section-title">Teaching Spotlight <span class="title-bg">COSC214</span></h2>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-12 col-lg-10">
+                        <a class="modern-card teaching-card" href="#" target="_blank" rel="noopener">
+                            <div class="course-badge">
+                                <span></span>
+                                Rafic Hariri University
+                            </div>
+                            <h5>Introduction into Programming with C++ &amp; Lab (COSC214)</h5>
+                            <p>
+                                Dedicated course site for COSC214 featuring lecture notes, C++ lab material, and assessment rubrics tailored for first-year engineering cohorts.
+                            </p>
+                            <div class="course-meta">
+                                <span><i class="fas fa-chalkboard-teacher"></i> Instructor-led labs</span>
+                                <span><i class="fas fa-laptop-code"></i> C++ fundamentals</span>
+                                <span><i class="fas fa-arrow-up-right-from-square"></i> External resources</span>
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -960,32 +1175,6 @@
             </div>
         </section>
 
-        <!-- Contact Section -->
-        <section class="section" id="contact-sec">
-            <div class="container">
-                <div class="section-heading">
-                    <h2 class="section-title">Contact Me <span class="title-bg">Contact</span></h2>
-                </div>
-                <div class="row">
-                    <div class="col-lg-6">
-                        <form class="contact-form" id="contact-form">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <input type="text" name="name" placeholder="Your Name" required>
-                                </div>
-                                <div class="col-md-6">
-                                    <input type="email" name="email" placeholder="Your Email" required>
-                                </div>
-                            </div>
-                            <input type="text" name="subject" placeholder="Subject" required>
-                            <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-                            <button type="submit" class="btn btn-primary">Send Message</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-
     </div>
 
     <!-- Scripts -->
@@ -1000,8 +1189,8 @@
             const body = document.body;
             const html = document.documentElement;
             
-            // Check for saved theme preference or default to light mode
-            const currentTheme = localStorage.getItem('theme') || 'light';
+            // Check for saved theme preference or default to dark mode
+            const currentTheme = localStorage.getItem('theme') || 'dark';
             html.setAttribute('data-theme', currentTheme);
             
             themeToggle.addEventListener('click', function() {
@@ -1021,23 +1210,22 @@
             
             // Dynamic loading messages
             const loadingMessages = [
-                "Welcome to Serah's Digital Universe",
-                "Gathering AI Expertise...",
-                "Loading Innovation Portfolio...",
-                "Assembling Community Connections...",
-                "Preparing Quantum Insights...",
-                "Finalizing Your Experience...",
-                "Ready for Takeoff! ✨"
+                "Booting the AI lab",
+                "Calibrating models",
+                "Spinning up research notes",
+                "Linking community stories",
+                "Opening quantum notebooks",
+                "Ready for takeoff"
             ];
             
-            // Item drop timings
+            // Item drop timings (snappy load)
             const itemTimings = [
-                { id: 'item1', delay: 1000 },
-                { id: 'item2', delay: 5000 },
-                { id: 'item3', delay: 9000 },
-                { id: 'item4', delay: 13000 },
-                { id: 'item5', delay: 17000 },
-                { id: 'item6', delay: 21000 }
+                { id: 'item1', delay: 500 },
+                { id: 'item2', delay: 1000 },
+                { id: 'item3', delay: 1500 },
+                { id: 'item4', delay: 2000 },
+                { id: 'item5', delay: 2500 },
+                { id: 'item6', delay: 3000 }
             ];
             
             // Change loading text when items drop
@@ -1068,7 +1256,7 @@
             // Final text change before fade out
             setTimeout(function() {
                 loadingText.textContent = loadingMessages[loadingMessages.length - 1];
-            }, 25000);
+            }, 3400);
             
             // Hide preloader after animations complete
             setTimeout(function() {
@@ -1080,7 +1268,7 @@
                     preloader.style.display = 'none';
                 }, 800); // Wait for fade transition to complete
                 
-            }, 27000);
+            }, 3800);
         });
         
         // Smooth Section Animation on Scroll
@@ -1109,14 +1297,13 @@
         document.addEventListener('DOMContentLoaded', function() {
             var typed = new Typed(".typing_text", {
                 strings: [
-                    'AI Expert',
-                    'Generative AI Leader',
-                    'LLMs Specialist', 
-                    'Professor & Researcher',
-                    'Academic Innovator',
-                    'Technology Leader'
+                    'Educator & Mentor',
+                    'STEM Community Builder',
+                    'AI Researcher', 
+                    'University Lecturer',
+                    'Women in STEM'
                 ],
-                typeSpeed: 100,
+                typeSpeed: 150,
                 backSpeed: 60,
                 loop: true,
                 cursorChar: '█',
